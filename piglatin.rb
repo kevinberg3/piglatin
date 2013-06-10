@@ -2,11 +2,10 @@ class PiglatinConverter
 
 	def self.convert(word)
 		consonants = ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z"]
-		vowels = ["a","e","i","o","u"]
 		foundcharacters = ""
 
-		if vowels.include? word[0,1]
-			puts word
+		if word.start_with?("a" || "e" || "i" || "o" || "u")
+			return word
 		else
 		# Finding the first consonants
 			word.each_char do |i|
@@ -16,19 +15,15 @@ class PiglatinConverter
 					break
 				end
 			end
-
-			# Removing the found consonants from the original word
+				# Removing the found consonants from the original word
 			word.slice! foundcharacters
-
 			# Creating the Pig Latin
 			finalword = word + foundcharacters + "ay"
-
-
 			# Putsing the Pig Latin
-			puts "Your Pig Latin: " + finalword
+			return finalword
 		end
 	end
 end
 
-puts "Please enter your word to convert it to Pig Latin"
-PiglatinConverter.convert(gets.chomp.downcase)
+# puts "Please enter your word to convert it to Pig Latin"
+# PiglatinConverter.convert(gets.chomp.downcase)
