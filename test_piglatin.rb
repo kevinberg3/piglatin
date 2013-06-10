@@ -11,6 +11,10 @@ class TestPiglatin < Test::Unit::TestCase
 	  assert_equal "allo", PiglatinConverter.convert("allo")
 	end
 
+	def test_if_nil_value_is_entered
+		assert_equal nil, PiglatinConverter.convert(nil)
+	end
+
 end
 
 

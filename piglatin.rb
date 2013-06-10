@@ -4,8 +4,12 @@ class PiglatinConverter
 		consonants = ["b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z"]
 		foundcharacters = ""
 
-		if word.start_with?("a" || "e" || "i" || "o" || "u")
+		if word.nil?
 			return word
+
+		elsif word.start_with?("a" || "e" || "i" || "o" || "u")
+			return word
+		
 		else
 		# Finding the first consonants
 			word.each_char do |i|
@@ -15,6 +19,7 @@ class PiglatinConverter
 					break
 				end
 			end
+
 				# Removing the found consonants from the original word
 			word.slice! foundcharacters
 			# Creating the Pig Latin
